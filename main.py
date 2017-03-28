@@ -41,7 +41,30 @@ class MainHandler(webapp2.RequestHandler):
         #   3. Password Verify
         #   4. E-mail (optional)
         # And posts to a validation handler
-        body = "Signup page"
+        form = """
+        <form action="/welcome" method="post">
+            <table>
+                <tr>
+                    <td><label>Name<span class="alert">*</span></label></td>
+                    <td><input type="text" name="username" /></td>
+                </tr>
+                <tr>
+                    <td><label>Password<span class="alert">*</span></label></td>
+                    <td><input type="password" name="password" /></td>
+                </tr>
+                <tr>
+                    <td><label>Confirm Password<span class="alert">*</span></label></td>
+                    <td><input type="password" name="confirm-password" /></td>
+                </tr>
+                <tr>
+                    <td><label>E-Mail</label></td>
+                    <td><input type="email" name="email" /></td>
+                </tr>
+            </table>
+            <input type="submit" />
+        </form>
+        """
+        body = form
 
         # TODO 3: Check for and display error
         error = self.request.get("error")
