@@ -16,10 +16,48 @@
 #
 import webapp2
 
+
+
 class MainHandler(webapp2.RequestHandler):
     def get(self):
-        self.response.write('Hello world!')
+
+        header = """
+        <!DOCTYPE html>
+        <html>
+        <head>
+            <title>Signup</title>
+        </head>
+        <body>
+        """
+
+        footer = """
+        </body>
+        </html>
+        """
+
+        # TODO 1: Create a form that asks for the following:
+        #   1. Name
+        #   2. Password
+        #   3. Password Verify
+        #   4. E-mail (optional)
+        # And posts to a validation handler
+        body = "Signup page"
+
+        # TODO 3: Check for and display error
+        error = self.request.get("error")
+
+        content = header + body + footer
+        self.response.write(content)
+
+class SignupHandler(webapp2.RequestHandler):
+    def post(self):
+
+        # TODO 2: Validate the user's input
+        #   - If valid, redirect to welcome page
+        #   - If invalid, redirect back to main page and send an error message
+        self.response.write('Welcome page')
 
 app = webapp2.WSGIApplication([
     ('/', MainHandler)
+    ('/welcome', SignupHandler)
 ], debug=True)
