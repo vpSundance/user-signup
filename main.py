@@ -58,6 +58,6 @@ class SignupHandler(webapp2.RequestHandler):
         self.response.write('Welcome page')
 
 app = webapp2.WSGIApplication([
-    ('/', MainHandler)
+    ('/', MainHandler),
     ('/welcome', SignupHandler)
 ], debug=True)
