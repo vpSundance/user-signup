@@ -49,29 +49,34 @@ class MainHandler(webapp2.RequestHandler):
         <form action="/welcome" method="post">
             <table>
                 <tr>
-                    <td><label>Name<span class="alert">*</span></label></td>
+                    <th/>
+                    <th>Signup</th>
+                </tr>
+                <tr>
+                    <td><label><span class="alert">*</span>Username:</label></td>
                     <td><input type="text" name="username" value="{0}" required /></td>
                 </tr>
                 <tr>
-                    <td><label>Password<span class="alert">*</span></label></td>
+                    <td><label><span class="alert">*</span>Password:</label></td>
                     <td><input type="password" name="password" required /></td>
                 </tr>
                 <tr>
-                    <td><label>Confirm Password<span class="alert">*</span></label></td>
+                    <td><label><span class="alert">*</span>Confirm Password:</label></td>
                     <td><input type="password" name="confirm-password" required /></td>
                 </tr>
                 <tr>
-                    <td><label>E-Mail</label></td>
+                    <td><label>E-Mail:</label></td>
                     <td><input type="email" name="email" value="{1}" /></td>
                 </tr>
+                <tr>
+                    <td colspan="2">
+                        <input type="submit" />
+                    </td>
+                </tr>
             </table>
-            <input type="submit" />
         </form>
         """.format(username, email)
-        body = """
-        <h1>Signup</h1>
-        {0}
-        """.format(form)
+        body = form
 
         # TODO 3: Check for and display error
         error = self.request.get("er")

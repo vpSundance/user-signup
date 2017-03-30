@@ -1,3 +1,15 @@
 * {
 	font-family: "Calibri";
 }
+
+.alert {
+    color: red;
+}
+
+td {
+    text-align: right
+}
+
+th {
+	font-size: 24px;
+}
