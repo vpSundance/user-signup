@@ -64,7 +64,10 @@ class MainHandler(webapp2.RequestHandler):
             <input type="submit" />
         </form>
         """
-        body = form
+        body = """
+        <h1>Signup</h1>
+        {0}
+        """.format(form)
 
         # TODO 3: Check for and display error
         error = self.request.get("error")
