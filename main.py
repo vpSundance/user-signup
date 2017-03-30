@@ -15,8 +15,10 @@
 # limitations under the License.
 #
 import webapp2
+import cgi
 
-
+username = ""
+email = ""
 
 class MainHandler(webapp2.RequestHandler):
     def get(self):
@@ -41,12 +43,13 @@ class MainHandler(webapp2.RequestHandler):
         #   3. Password Verify
         #   4. E-mail (optional)
         # And posts to a validation handler
+
         form = """
         <form action="/welcome" method="post">
             <table>
                 <tr>
                     <td><label>Name<span class="alert">*</span></label></td>
-                    <td><input type="text" name="username" required /></td>
+                    <td><input type="text" name="username" value="{0}" required /></td>
                 </tr>
                 <tr>
                     <td><label>Password<span class="alert">*</span></label></td>
@@ -58,19 +61,26 @@ class MainHandler(webapp2.RequestHandler):
                 </tr>
                 <tr>
                     <td><label>E-Mail</label></td>
-                    <td><input type="email" name="email" /></td>
+                    <td><input type="email" name="email" value="{1}" /></td>
                 </tr>
             </table>
             <input type="submit" />
         </form>
-        """
+        """.format(username, email)
         body = """
         <h1>Signup</h1>
         {0}
         """.format(form)
 
         # TODO 3: Check for and display error
-        error = self.request.get("error")
+        error = self.request.get("er")
+        if error:
+            body = """
+            {0}
+            <p>
+                <span class="alert">Passwords do not match.</span>
+            </p>
+            """.format(body)
 
         content = header + body + footer
         self.response.write(content)
@@ -81,7 +91,19 @@ class SignupHandler(webapp2.RequestHandler):
         # TODO 2: Validate the user's input
         #   - If valid, redirect to welcome page
         #   - If invalid, redirect back to main page and send an error message
-        self.response.write('Welcome page')
+        pwd = self.request.get("password")
+        pwd_match = self.request.get("confirm-password")
+
+        global username
+        username = cgi.escape(self.request.get("username"))
+        global email
+        email = cgi.escape(self.request.get("email"))
+
+        if pwd != pwd_match:
+            self.redirect("/?er=1")
+
+        self.response.write('Welcome, {0}!'.format(username))
+
 
 app = webapp2.WSGIApplication([
     ('/', MainHandler),
