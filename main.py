@@ -46,15 +46,15 @@ class MainHandler(webapp2.RequestHandler):
             <table>
                 <tr>
                     <td><label>Name<span class="alert">*</span></label></td>
-                    <td><input type="text" name="username" /></td>
+                    <td><input type="text" name="username" required /></td>
                 </tr>
                 <tr>
                     <td><label>Password<span class="alert">*</span></label></td>
-                    <td><input type="password" name="password" /></td>
+                    <td><input type="password" name="password" required /></td>
                 </tr>
                 <tr>
                     <td><label>Confirm Password<span class="alert">*</span></label></td>
-                    <td><input type="password" name="confirm-password" /></td>
+                    <td><input type="password" name="confirm-password" required /></td>
                 </tr>
                 <tr>
                     <td><label>E-Mail</label></td>
