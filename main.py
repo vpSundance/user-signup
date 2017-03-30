@@ -27,6 +27,7 @@ class MainHandler(webapp2.RequestHandler):
         <!DOCTYPE html>
         <html>
         <head>
+            <link rel="stylesheet" type="text/css" href="stylesheet.css" />
             <title>Signup</title>
         </head>
         <body>
