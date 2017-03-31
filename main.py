@@ -82,47 +82,26 @@ class MainHandler(webapp2.RequestHandler):
                 <tr>
                     <td><label><span class="alert">*</span>Username:</label></td>
                     <td><input type="text" name="username" value="{4}" required /></td>
-                </tr>
-                <tr>
-                    <td />
-                    <td>
-                        <span class="alert">{0}</span>
-                    </td>
+                    <td><span class="alert">{0}</span></td>
                 </tr>
                 <tr>
                     <td><label><span class="alert">*</span>Password:</label></td>
                     <td><input type="password" name="password" required /></td>
-                </tr>
-                <tr>
-                    <td />
-                    <td>
-                        <span class="alert">{1}</span>
-                    </td>
+                    <td><span class="alert">{1}</span></td>
                 </tr>
                 <tr>
                     <td><label><span class="alert">*</span>Confirm Password:</label></td>
                     <td><input type="password" name="confirm-password" required /></td>
-                </tr>
-                <tr>
-                    <td />
-                    <td>
-                        <span class="alert">{2}</span>
-                    </td>
+                    <td><span class="alert">{2}</span></td>
                 </tr>
                 <tr>
                     <td><label>E-Mail:</label></td>
                     <td><input type="email" name="email" value="{5}" /></td>
+                    <td><span class="alert">{3}</span></td>
                 </tr>
                 <tr>
-                    <td />
-                    <td>
-                        <span class="alert">{3}</span>
-                    </td>
-                </tr>
-                <tr>
-                    <td colspan="2">
-                        <input type="submit" />
-                    </td>
+                    <td/>
+                    <td><input type="submit" /></td>
                 </tr>
             </table>
         </form>

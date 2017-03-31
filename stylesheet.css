@@ -4,9 +4,10 @@
 
 .alert {
     color: red;
+    font-size: 11px;
 }
 
-td {
+tr td:first-of-type {
     text-align: right
 }
 
